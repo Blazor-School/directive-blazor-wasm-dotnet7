@@ -1,0 +1,10 @@
+﻿@page "/blazor-and-html-event"
+
+<h3>BlazorAndHtmlEvent</h3>
+@ExampleString
+<button type="button" onclick="alert('HTML event fired!')">HTML Event</button>
+<button type="button" @onclick='_ => ExampleString="Hello Blazor School!"'>Blazor Event</button>
+
+@code {
+    public string ExampleString { get; set; } = "";
+}

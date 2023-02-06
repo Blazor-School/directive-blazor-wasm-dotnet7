@@ -1,0 +1,22 @@
+﻿@page "/prevent-default-example"
+
+<h3>PreventDefaultExample</h3>
+<form>
+    <div>
+        <label>
+            Without preventDefault:
+            <input type="checkbox" @onclick=' _ => Message = ""' />
+        </label>
+    </div>
+    <div>
+        <label>
+            With preventDefault:
+            <input type="checkbox" @onclick=' _ => Message = "You cannot tick this checkbox because we have preventDefault enabled."' @onclick:preventDefault />
+        </label>
+    </div>
+</form>
+<div>@Message</div>
+
+@code {
+    public string Message { get; set; } = "";
+}

@@ -1,0 +1,21 @@
+﻿@page "/pass-parameters"
+
+<h3>PassParameters</h3>
+<button type="button" @onclick="_ => ExampleMethodWithoutHtmlEvent(ExampleString)">Example parameterized method without HTML event</button>
+<button type="button" @onclick="(e) => ExampleMethodWithHtmlEvent(e, ExampleString)">Example parameterized method with HTML event</button>
+<div>@Message</div>
+
+@code {
+    public string ExampleString { get; set; } = "Blazor School";
+    public string Message { get; set; } = "";
+
+    public void ExampleMethodWithHtmlEvent(MouseEventArgs eventArgs, string exampleString)
+    {
+        Message = $"Mouse {eventArgs.Button} press, received parameter: {exampleString}";
+    }
+    
+    public void ExampleMethodWithoutHtmlEvent(string exampleString)
+    {
+        Message = $"Received parameter: {exampleString}";
+    }
+}

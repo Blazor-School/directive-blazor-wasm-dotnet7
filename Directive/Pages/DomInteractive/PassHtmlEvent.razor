@@ -1,0 +1,15 @@
+﻿@page "/pass-html-event"
+
+<h3>PassHtmlEvent</h3>
+<p>Hover the box below:</p>
+<div style="border: solid 3px;height: 500px; width: 500px" @onmousemove="UpdateCoordinate"></div>
+<div>@Coordinate</div>
+
+@code {
+    public string Coordinate { get; set; } = "";
+
+    public void UpdateCoordinate(MouseEventArgs args)
+    {
+        Coordinate = $"X: {args.ClientX} Y: {args.ClientY}";
+    }
+}

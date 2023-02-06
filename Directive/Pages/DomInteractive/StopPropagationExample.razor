@@ -1,0 +1,31 @@
+﻿@page "/stop-propagation-example"
+
+<h3>StopPropagationExample</h3>
+<div>Without stop propagation:</div>
+<button type="button" @onclick='_ => Message += "<code>Level 1</code> clicked. "'>
+        Level 1
+    <button type="button" @onclick='_ => Message += "<code>Level 2</code> clicked. "'>
+        Level 2
+        <button type="button" @onclick='_ => Message += "<code>Level 3</code> clicked. "'>
+            Level 3
+        </button>
+    </button>
+</button>
+<div>With stop propagation:</div>
+<button type="button" @onclick='_ => Message += "<code>Level 1</code> clicked. "'>
+        Level 1
+    <button type="button" @onclick='_ => Message += "<code>Level 2</code> clicked. Stop propagation here."' @onclick:stopPropagation>
+        Level 2
+        <button type="button" @onclick='_ => Message += "<code>Level 3</code> clicked. "'>
+            Level 3
+        </button>
+    </button>
+</button>
+
+<div>Message: @((MarkupString)Message)</div>
+
+<button type="button" @onclick='_ => Message = ""'>Reset Message</button>
+
+@code {
+    public string Message { get; set; } = "";
+}

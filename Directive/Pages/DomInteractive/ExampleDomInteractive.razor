@@ -1,0 +1,17 @@
+﻿@page "/example-dom-interactive"
+
+<h3>ExampleDomInteractive</h3>
+<div @attributes="Attributes">Inspect me to see my attributes.</div>
+
+@code {
+    Dictionary<string, object> Attributes { get; set; } = new()
+    {
+        { "example-string", "Blazor School" },
+        { "example-int", 10 },
+        { "example-object", new 
+            { 
+                date = DateTime.Now 
+            } 
+        }
+    };
+}
